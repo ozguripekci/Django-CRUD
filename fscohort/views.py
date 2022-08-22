@@ -46,6 +46,7 @@ def student_update(request, id):
 
 
 def student_delete(request, id):
+
     student = Student.objects.get(id = id)
     
     if  request.method == 'POST':
@@ -58,3 +59,10 @@ def student_delete(request, id):
     }
     return render(request, 'fscohort/student_delete.html', context)
 
+
+def student_detail(request, id):
+    student = Student.objects.get(id = id)
+    context = {
+        'student' : student
+    }
+    return render(request, 'fscohort/student_detail.html', context)
